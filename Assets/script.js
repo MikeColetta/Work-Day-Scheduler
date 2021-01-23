@@ -1,4 +1,4 @@
-//function that displays the current time and date
+//function that displays the current time and date using Luxon.
 
 //make HTML for the time blocks that represent 9am - 5pm
 
