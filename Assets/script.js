@@ -1,5 +1,8 @@
-//function that displays the current time and date using Luxon.
+$(document).ready(function(){
 
+//function that displays the current time and date using Luxon.
+var savedAppointments = [];
+var hoursArray = [];
 const currentTime = moment();
 console.log(currentTime);
 $("#currentDay").text(currentTime.format("dddd MMMM Mo YYYY h:mmA"));
@@ -11,12 +14,9 @@ $("#currentDay").text(currentTime.format("dddd MMMM Mo YYYY h:mmA"));
 colorCode()
 
 function colorCode () {
-    var hoursArray = [];
-    $('.pastPresentFuture').each (function() {
-      hoursArray.push($(this).val());
-        console.log(hoursArray)
-    });
-}
+    var appointmentForm = $('.appointmentForm')
+    };
+
      
 
 //         for (i = 0; i < hoursArray.length; i++) {
@@ -36,6 +36,15 @@ function colorCode () {
 //   }
 
 
+//save buttons
+$(".saveBtn").on("click", function(){
+  var appointmentForm = $('.appointmentForm')
+  
+  for (i = 0; i < appointmentForm.length; i++)
+  appointments = $(".appointmentForm").val();
+  savedAppointments.push(appointments[i])
+  localStorage.setItem("appointments", JSON.stringify(savedAppointments));
+})
 
 //have the time blocks show past present or future. Will need a current time variable
 // function pastPresentFuture() {
@@ -54,3 +63,11 @@ function colorCode () {
 //time block content is saved to local storage
 
 //localStorage.getItem to load appointments into correct time blocks.
+
+//list of things I need to call on
+// -save buttons
+// -forms
+// -the current Time
+})
+
+
