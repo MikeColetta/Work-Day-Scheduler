@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 //function that displays the current time and date using Luxon.
-var savedAppointments = [];
+var savedAppointments = {};
 // var hoursArray = [];
 var currentTime = moment.parseZone();
 compareNow = parseInt(moment.parseZone().format("H"))
@@ -13,6 +13,25 @@ $("#currentDay").text(currentTime.format("dddd MMMM Mo YYYY h:mm A"));
 console.log(compareNow > 9)
 
 compare()
+getSavedApptData()
+
+function getSavedApptData() {
+  var localStorageContent = JSON.parse(localStorage.getItem("savedAppointments"))
+  console.log(localStorageContent)
+  if (localStorageContent === null) {
+    return
+  }
+  savedAppointments = localStorageContent
+
+  var appointmentKeys = Object.keys(savedAppointments)
+  console.log(appointmentKeys) 
+  
+  for (var i = 0; i < appointmentKeys.length; i++) {
+    var key = appointmentKeys[i]
+    var text = savedAppointments[key]
+    $("#" + key).val(text)
+  }
+}
 
 function compare() {
 compareNine()
@@ -153,48 +172,20 @@ compareFive()
 //   }
 // })
 
-  $("#nineBtn").on("click", function () {
-    saveBtn()
-  })
 
-  $("#tenBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#elevenBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#twelveBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#oneBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#twoBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#threeBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#fourBtn").on("click", function () {
-    saveBtn()
-  })
-
-  $("#fiveBtn").on("click", function () {
-    saveBtn()
-  })
-
-  function saveBtn() {
-    var appointmentForm = $('.appointmentForm').val();
-    savedAppointments.push(appointmentForm);
-    console.log(appointmentForm)
+  $("#allInputs").on("click", "button", function () {
+    var textID = $(this).attr("formText")
+    var textAppointment = $("#" + textID)
+    console.log(textAppointment.val())
+    savedAppointments[textID] = textAppointment.val()
     console.log(savedAppointments)
+    cacheApptData()
+  })
+
+  function cacheApptData() {
+    localStorage.setItem("savedAppointments", JSON.stringify(savedAppointments));
   }
+
 
 // colorCodeBlocks()
 
