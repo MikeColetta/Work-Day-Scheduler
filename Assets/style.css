@@ -4,12 +4,20 @@ body {
   line-height: 1;
 }
 
-textarea{
+p {
+  margin: 10px;
+}
+
+textarea {
   background: transparent;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
+}
+
+textarea.form-control {
+  height: 95%;
 }
 
 .jumbotron {
