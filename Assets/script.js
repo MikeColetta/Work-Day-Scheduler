@@ -172,7 +172,7 @@ compareFive()
 //   }
 // })
 
-
+//grabs all buttons in the container.
   $("#allInputs").on("click", "button", function () {
     var textID = $(this).attr("formText")
     var textAppointment = $("#" + textID)
