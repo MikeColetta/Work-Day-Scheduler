@@ -1,48 +1,43 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-//function that displays the current time and date using Luxon.
-var savedAppointments = {};
-// var hoursArray = [];
-var currentTime = moment.parseZone();
-compareNow = parseInt(moment.parseZone().format("H"))
-console.log(compareNow);
-console.log(currentTime);
-console.log(moment(currentTime, 'hour'))
-$("#currentDay").text(currentTime.format("dddd MMMM Mo YYYY h:mm A"));
+  //function that displays the current time and date using Luxon.
+  var savedAppointments = {};
+  // var hoursArray = [];
+  var currentTime = moment.parseZone();
+  compareNow = parseInt(moment.parseZone().format("H"))
+  $("#currentDay").text(currentTime.format("dddd MMMM Mo YYYY h:mm A"));
 
-console.log(compareNow > 9)
+  compare()
+  getSavedApptData()
 
-compare()
-getSavedApptData()
+  //Grabs from local storage and writes appointments.
+  function getSavedApptData() {
+    var localStorageContent = JSON.parse(localStorage.getItem("savedAppointments"))
+    if (localStorageContent === null) {
+      return
+    }
+    savedAppointments = localStorageContent
 
-function getSavedApptData() {
-  var localStorageContent = JSON.parse(localStorage.getItem("savedAppointments"))
-  console.log(localStorageContent)
-  if (localStorageContent === null) {
-    return
+    var appointmentKeys = Object.keys(savedAppointments)
+
+    for (var i = 0; i < appointmentKeys.length; i++) {
+      var key = appointmentKeys[i]
+      var text = savedAppointments[key]
+      $("#" + key).val(text)
+    }
   }
-  savedAppointments = localStorageContent
 
-  var appointmentKeys = Object.keys(savedAppointments)
-  console.log(appointmentKeys) 
-  
-  for (var i = 0; i < appointmentKeys.length; i++) {
-    var key = appointmentKeys[i]
-    var text = savedAppointments[key]
-    $("#" + key).val(text)
-  }
-}
-
-function compare() {
-compareNine()
-compareTen()
-compareEleven()
-compareTwelve()
-compareOne()
-compareTwo()
-compareThree()
-compareFour()
-compareFive()
+  //Compares current time to hour blocks and color codes them. 
+  function compare() {
+    compareNine()
+    compareTen()
+    compareEleven()
+    compareTwelve()
+    compareOne()
+    compareTwo()
+    compareThree()
+    compareFour()
+    compareFive()
 
     function compareNine() {
       nineAppt = 9;
@@ -160,123 +155,17 @@ compareFive()
       }
     };
   }
-//save buttons
-// $(".saveBtn").on("click", function () {
-//   var appointmentForm = [$('.appointmentForm').val()]
-//   console.log(appointmentForm)
-//   console.log(savedAppointments)
-  
-//   for (i = 0; i < appointmentForm.length; i++) {
-//     savedAppointments.push(appointmentForm[i])
-//     localStorage.setItem("appointments", JSON.stringify(savedAppointments));
-//   }
-// })
 
-//grabs all buttons in the container.
+  //Grabs all buttons in the container.
   $("#allInputs").on("click", "button", function () {
     var textID = $(this).attr("formText")
     var textAppointment = $("#" + textID)
-    console.log(textAppointment.val())
     savedAppointments[textID] = textAppointment.val()
-    console.log(savedAppointments)
     cacheApptData()
   })
 
+  //Caches appointments to local storage.
   function cacheApptData() {
     localStorage.setItem("savedAppointments", JSON.stringify(savedAppointments));
   }
-
-
-// colorCodeBlocks()
-
-// function colorCodeBlocks () {
-//     var nineAppt = moment()
-//     nineAppt.set({hour:9,minute:0,second:0,millisecond:0})
-//     nineAppt.toISOString()
-//     nineAppt.format()
-//     var tenAppt = moment()
-//     tenAppt.set({hour:10,minute:0,second:0,millisecond:0})
-//     tenAppt.toISOString()
-//     tenAppt.format()
-//     var elevenAppt = moment()
-//     elevenAppt.set({hour:11,minute:0,second:0,millisecond:0})
-//     elevenAppt.toISOString()
-//     elevenAppt.format()
-//     var twelveAppt = moment()
-//     twelveAppt.set({hour:12,minute:0,second:0,millisecond:0})
-//     twelveAppt.toISOString()
-//     twelveAppt.format()
-//     var oneAppt = moment()
-//     oneAppt.set({hour:13,minute:0,second:0,millisecond:0})
-//     oneAppt.toISOString()
-//     oneAppt.format()
-//     var twoAppt = moment()
-//     two.set({hour:14,minute:0,second:0,millisecond:0})
-//     two.toISOString()
-//     two.format()
-//     var threeAppt = moment()
-//     threeAppt.set({hour:15,minute:0,second:0,millisecond:0})
-//     threeAppt.toISOString()
-//     threeAppt.format()
-//     var fourAppt = moment()
-//     fourAppt.set({hour:16,minute:0,second:0,millisecond:0})
-//     fourAppt.toISOString()
-//     fourAppt.format()
-//     var fiveAppt = moment()
-//     fiveAppt.set({hour:17,minute:0,second:0,millisecond:0})
-//     fiveAppt.toISOString()
-//     fiveAppt.format()
-    
-//       if (currentTime < nineAppt) {
-//         $("#nineAppt").addClass("past")
-//       }
-//       else if (currentTime = nineAppt) {
-//         $("#nineAppt").addClass("present")
-//       }
-//       else {
-//         $("#nineAppt").addClass("future")
-//       }
-//     };
-
-     
-
-//         for (i = 0; i < hoursArray.length; i++) {
-//             if (hoursArray[i] < parseInt(moment("hh"))) {
-//              $(hoursArray[i]).addClass(".past")
-//             }
-
-//             if (hoursArray[i] = parseInt(moment("hh"))) {
-//                 $(hoursArray[i]).addClass(".present")
-//                }
-            
-//             else {
-//                 $(hoursArray[i]).addClass(".future")
-//             }
-//         }
-//     return
-//   }
-
-
-
-
-//have the time blocks show past present or future. Will need a current time variable
-// function pastPresentFuture() {
-          
- 
-
-// function needs to check if the block is in the past, present or future and then add a color coding to the hour box.
-//1. compare current moment JS with present moment JS on block
-
-//time blocks are clickable and can be written in.
-
-//time block content is saved to local storage
-
-//localStorage.getItem to load appointments into correct time blocks.
-
-//list of things I need to call on
-// -save buttons
-// -forms
-// -the current Time
 })
-
-
