@@ -9,10 +9,12 @@ My first step was to build the HTML. I implemented the bare bones CSS knowing I 
 
 After that I added local storage. With the help of my tutor I learned how to turn data from multiple text forms into an object. I then stored that object in local storage. When I call that storage at the beginning of my application I use a for loop to go through the object and place the appropriate key in the correct textarea.
 
+I then came back to the CSS and made my site look more like the example on GitLab. 
+
 This homework was definitely a challenge. I got stuck trying to solve that depracation error for hours until I learned I was making the problem more complicated than it needed to be. Overall though I learned a lot about objects in JavaScript and how to use them for local storage. 
 
 ## Project Link
-[Deployed Link]()
+[Deployed Link](https://mikecoletta.github.io/Work-Day-Scheduler/)
 
 ## Site Screenshots
 
