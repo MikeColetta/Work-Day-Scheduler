@@ -18,7 +18,7 @@ This homework was definitely a challenge. I got stuck trying to solve that depra
 
 ## Site Screenshots
 
-![Screenshot 1]()
+![Screenshot 1](Images/Screenshot1.JPG)
 
 
 ## Credits
