@@ -11,7 +11,7 @@ After that I added local storage. With the help of my tutor I learned how to tur
 
 I then came back to the CSS and made my site look more like the example on GitLab. 
 
-This homework was definitely a challenge. I got stuck trying to solve that depracation error for hours until I learned I was making the problem more complicated than it needed to be. Overall though I learned a lot about objects in JavaScript and how to use them for local storage. 
+This homework was definitely a challenge. I got stuck trying to solve that depracation error for hours until I learned I was making the problem more complicated than it needed to be. Overall though I learned a lot about moment js, objects in JavaScript, and how to use objects for local storage. 
 
 ## Project Link
 [Deployed Link](https://mikecoletta.github.io/Work-Day-Scheduler/)
