@@ -19,7 +19,6 @@ This homework was definitely a challenge. I got stuck trying to solve that depra
 ## Site Screenshots
 
 ![Screenshot 1](Images/Screenshot1.JPG)
-![Screenshot 2](Images/Screenshot2.JPG)
 
 ## Credits
 Moment.js Documentation (https://momentjs.com/docs/)
