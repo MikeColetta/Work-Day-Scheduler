@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-  //function that displays the current time and date using Luxon.
   var savedAppointments = {};
-  // var hoursArray = [];
-  var currentTime = moment.parseZone();
-  compareNow = parseInt(moment.parseZone().format("H"))
-  $("#currentDay").text(currentTime.format("dddd MMMM Mo YYYY h:mm A"));
+  var currentTime = moment();
+  var compareNow = parseInt(moment().format("H"))
+
+  //function that displays the current time and date using moment js.
+  $("#currentDay").text(currentTime.format("dddd MMMM Do YYYY h:mm A"));
 
   compare()
   getSavedApptData()
