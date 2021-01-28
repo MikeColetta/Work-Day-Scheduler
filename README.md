@@ -11,6 +11,8 @@ After that I added local storage. With the help of my tutor I learned how to tur
 
 I then came back to the CSS and made my site look more like the example on GitLab. 
 
+The last major edit I made to the JavaScript was fix a bug. I noticed that no matter what the day was it always displayed as "January 1st" at the top of my page. I realized I used the incorrect formatting method in moment js. I used "Mo", which is month as a number (in this case 1st for January) instead of "Do" for day of (which today is the 28th).
+
 This homework was definitely a challenge. I got stuck trying to solve that depracation error for hours until I learned I was making the problem more complicated than it needed to be. Overall though I learned a lot about moment js, objects in JavaScript, and how to use objects for local storage. 
 
 ## Project Link
