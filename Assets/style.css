@@ -96,3 +96,8 @@ div.col-10 {
 div.col {
   padding: 0;
 }
+
+.apptTime {
+  font-weight: bold;
+  text-align: right;
+}
